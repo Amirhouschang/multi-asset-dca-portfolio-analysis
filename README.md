@@ -182,13 +182,13 @@ KPI cards for total invested, final DCA return, final portfolio value, and profi
 
 ### Report page 2 — Asset & Market Explorer
 
-![Star schema loaded in Power BI](images/10_power_bi_data_model.png)
+![Power BI Asset & Market Explorer page](images/12_power_bi_asset_market_explorer.png)
 
 A per-asset view combining the traditional asset summary (ticker, monthly allocation, final DCA return, contribution in percentage points), weekly normalized price performance, and the final DCA return by asset. A date slicer on `dim_date` filters the period, and a short takeaway panel highlights the contrast between return ranking and contribution ranking.
 
 ### Data model in Power BI
 
-![Star schema loaded in Power BI](10_power_bi_data_model.png)
+![Star schema loaded in Power BI](images/10_power_bi_data_model.png)
 
 The exported model loads without reshaping: three dimensions, one bridge table, four fact tables, and one-to-many single-direction relationships from the dimensions to the facts. A separate `_Measures` table holds the DAX measures used across both report pages, including total invested, final DCA return, final portfolio value, profit/loss, contribution to portfolio return, and the normalized price index.
 
