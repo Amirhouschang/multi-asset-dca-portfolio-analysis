@@ -176,13 +176,13 @@ I therefore built a compact two-page Power BI report directly on the eight expor
 
 ### Report page 1 — Portfolio Overview
 
-![Power BI Portfolio Overview page](11_power_bi_portfolio_overview.png)
+![Power BI Portfolio Overview page](images/11_power_bi_portfolio_overview.png)
 
 KPI cards for total invested, final DCA return, final portfolio value, and profit/loss, plus the traditional allocation, the final DCA return by strategy, and two time-series views (strategies and benchmarks). The numbers match the Python output: 1,300 invested, a final value of 1,547.22, and a final DCA return of +19.02%.
 
 ### Report page 2 — Asset & Market Explorer
 
-![Power BI Asset & Market Explorer page](12_power_bi_asset_market_explorer.png)
+![Star schema loaded in Power BI](images/10_power_bi_data_model.png)
 
 A per-asset view combining the traditional asset summary (ticker, monthly allocation, final DCA return, contribution in percentage points), weekly normalized price performance, and the final DCA return by asset. A date slicer on `dim_date` filters the period, and a short takeaway panel highlights the contrast between return ranking and contribution ranking.
 
