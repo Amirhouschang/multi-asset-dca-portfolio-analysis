@@ -279,19 +279,19 @@ The important point for this report is that nothing is recalculated manually in 
 
 ### Page 1 — Portfolio Overview
 
-![Power BI Portfolio Overview page](11_power_bi_portfolio_overview.png)
+![Power BI Portfolio Overview page](images/11_power_bi_portfolio_overview.png)
 
 This page carries the headline figures: 1,300 invested, a final portfolio value of 1,547.22, a profit of 247.22, and a final DCA return of +19.02%. Next to them are the traditional allocation, the final DCA return by strategy (traditional, benchmarks, combined at +11.13%, and the simulated crypto strategy at -28.30%), and the two DCA time series for strategies and benchmarks.
 
 ### Page 2 — Asset & Market Explorer
 
-![Power BI Asset & Market Explorer page](12_power_bi_asset_market_explorer.png)
+![Power BI Asset & Market Explorer page](images/12_power_bi_asset_market_explorer.png)
 
 The second page moves from strategy level to asset level. The summary table lists ticker, monthly allocation, final DCA return, and contribution in percentage points, with the allocation column summing to 100% and the contribution column to 19.02 — the same reconciliation the notebook performs. Alongside it are the weekly normalized price index and the final DCA return per asset, filtered by a date slicer on `dim_date`.
 
 ### Model view
 
-![Star schema loaded in Power BI](10_power_bi_data_model.png)
+![Star schema loaded in Power BI](images/10_power_bi_data_model.png)
 
 The model view shows the schema as Power BI reads it: `dim_date`, `dim_asset`, and `dim_strategy` as dimensions, `bridge_strategy_asset` for allocation shares, and the four fact tables, all connected by one-to-many single-direction relationships. The measures live in a separate `_Measures` table, which keeps the calculation logic distinct from the imported data.
 
