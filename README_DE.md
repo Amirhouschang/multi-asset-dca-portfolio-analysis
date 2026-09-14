@@ -206,6 +206,12 @@ Wenn das exportierte Modell in Power BI geladen wird:
 
 ---
 
+## Vollständiger Analysebericht
+
+Die ausführliche Methodik, Ergebnisse, Interpretation und Power-BI-Schicht stehen im [vollständigen Analysebericht](REPORT.md).
+
+---
+
 ## Aufbau des Repositorys
 
 ```text
