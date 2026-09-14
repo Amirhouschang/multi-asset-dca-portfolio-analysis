@@ -1,0 +1,14 @@
+AssetKey,AssetName,DisplayName,Ticker,AssetClass
+1,Scalable_MSCI_AC_World_Xtrackers,Scalable MSCI AC World,SCWX.DE,ETF
+2,VanEck_Defense_UCITS_ETF,VanEck Defense,DFEN.DE,ETF
+3,Amundi_Nasdaq_100_Swap_EUR,Amundi Nasdaq 100,LYMS.DE,ETF
+4,LG_Artificial_Intelligence,L&G Artificial Intelligence,XMLD.DE,ETF
+5,ASML_Holding,ASML Holding,ASME.DE,Stock
+6,iShares_Physical_Gold_ETC,iShares Physical Gold ETC,PPFB.DE,ETC
+7,Rheinmetall,Rheinmetall,RHM.DE,Stock
+8,Bitcoin,Bitcoin,BTC-EUR,Crypto
+9,Ethereum,Ethereum,ETH-EUR,Crypto
+10,Solana,Solana,SOL-EUR,Crypto
+11,iShares Core MSCI World,iShares Core MSCI World,EUNL.DE,ETF
+12,iShares Core DAX,iShares Core DAX,EXS1.DE,ETF
+13,iShares Core S&P 500,iShares Core S&P 500,SXR8.DE,ETF

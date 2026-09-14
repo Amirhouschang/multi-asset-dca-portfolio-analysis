@@ -1,0 +1,8 @@
+StrategyKey,StrategyName,StrategyType
+1,Traditional Portfolio,Actual
+2,Simulated Crypto DCA,Simulated
+3,Hypothetical Combined Portfolio,Hypothetical
+4,iShares Core MSCI World Benchmark,Benchmark
+5,iShares Core DAX Benchmark,Benchmark
+6,iShares Core S&P 500 Benchmark,Benchmark
+7,iShares Physical Gold ETC Benchmark,Benchmark
