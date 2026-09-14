@@ -4,7 +4,6 @@
 
 **May 2025 – May 2026**
 
----
 [English README](README.md) · [Deutsche README](README_DE.md)
 ---
 
