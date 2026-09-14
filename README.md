@@ -206,6 +206,12 @@ If the exported model is loaded into Power BI:
 
 ---
 
+## Full analytical report
+
+For the detailed methodology, results, interpretation, and Power BI layer, see the [full analytical report](REPORT.md).
+
+---
+
 ## Repository structure
 
 ```text
