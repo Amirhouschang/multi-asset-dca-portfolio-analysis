@@ -178,19 +178,19 @@ Ergänzend habe ich deshalb einen kompakten zweiseitigen Power-BI-Bericht direkt
 
 ### Berichtsseite 1 — Portfolio Overview
 
-![Power-BI-Seite „Portfolio Overview“](11_power_bi_portfolio_overview.png)
+![Power-BI-Seite „Portfolio Overview“](images/11_power_bi_portfolio_overview.png)
 
 KPI-Karten für eingezahltes Kapital, finale DCA-Rendite, finalen Portfoliowert und Gewinn/Verlust, dazu die traditionelle Allokation, die finale DCA-Rendite je Strategie und zwei Zeitreihen (Strategien und Benchmarks). Die Werte entsprechen den Python-Ergebnissen: 1.300 eingezahlt, Endwert 1.547,22 und eine finale DCA-Rendite von +19,02 %.
 
 ### Berichtsseite 2 — Asset & Market Explorer
 
-![Power-BI-Seite „Asset & Market Explorer“](12_power_bi_asset_market_explorer.png)
+![Power-BI-Seite „Asset & Market Explorer“](images/12_power_bi_asset_market_explorer.png)
 
 Eine Einzelwertansicht mit der Übersicht der traditionellen Positionen (Ticker, monatliche Allokation, finale DCA-Rendite, Beitrag in Prozentpunkten), der wöchentlichen normierten Kursentwicklung und der finalen DCA-Rendite je Asset. Ein Datums-Slicer auf `dim_date` filtert den Zeitraum, ein kurzer Textblock hebt den Unterschied zwischen Rendite-Rangfolge und Beitrags-Rangfolge hervor.
 
 ### Datenmodell in Power BI
 
-![Sternschema in Power BI](10_power_bi_data_model.png)
+![Sternschema in Power BI](images/10_power_bi_data_model.png)
 
 Das exportierte Modell lädt ohne weitere Umbauten: drei Dimensionen, eine Bridge-Tabelle, vier Faktentabellen und 1:n-Beziehungen in einer Richtung von den Dimensionen zu den Fakten. Eine separate `_Measures`-Tabelle enthält die DAX-Measures beider Berichtsseiten, unter anderem eingezahltes Kapital, finale DCA-Rendite, finalen Portfoliowert, Gewinn/Verlust, Beitrag zur Portfoliorendite und den normierten Preisindex.
 
