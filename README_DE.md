@@ -1,6 +1,6 @@
 # Multi-Asset-DCA-Portfolioanalyse
 
-**Language:** Deutsch | [English](README.md)
+**Sprache:** Deutsch | [English](README.md)
 
 **Wertentwicklung, Risiko, Benchmarks, Diversifikation und dimensionale Datenmodellierung — Mai 2025 bis Mai 2026**
 
