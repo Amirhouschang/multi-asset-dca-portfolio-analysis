@@ -4,14 +4,13 @@
 
 **May 2025 – May 2026**
 
-[English README](README.md) · [Deutsche README](README_DE.md)
 ---
 
 ## 1. Where this project started
 
-In May 2025, I began keeping a simple Excel record of my investments. The first version was not a financial model. It was a practical list: dates, assets, amounts, and a way to see what I had bought.
+In May 2025, the project began as a simple Excel record of a real investment portfolio. The first version was not a financial model. It was a practical list: dates, assets, amounts, and a way to track investment activity.
 
-I did not come to this from economics, finance, computer science, software engineering, or AI engineering. My academic background is in history and Iranian studies. At the beginning, Excel was mainly a record-keeping tool for me, and I had no reason to think of the spreadsheet as the starting point of a larger data project.
+I did not come to this from economics, finance, computer science, software engineering, or AI engineering. My academic background is in history and Iranian studies. At the beginning, Excel was mainly a record-keeping tool, and there was no reason to think of the spreadsheet as the starting point of a larger data project.
 
 That changed during a later data-analysis bootcamp. As I learned Python, pandas, visualization, Power BI, and data modeling, I returned to the old spreadsheet with different questions. Instead of only asking whether an investment was up or down, I could ask:
 
@@ -45,7 +44,7 @@ Python became the main environment because I prefer transparent and reproducible
 
 ## 3. Analytical design
 
-The traditional portfolio reflects the real investment structure, while the monetary values are normalized for privacy. The cryptocurrency component is a simulation because the actual crypto purchases were irregular rather than a fixed monthly plan. The combined portfolio is therefore hypothetical.
+The traditional portfolio reflects a real-world investment structure, while the monetary values are normalized for privacy. The cryptocurrency component is a simulation because the real-world crypto activity did not follow a fixed monthly plan. The combined portfolio is therefore hypothetical.
 
 ### Purchase schedule
 
@@ -279,19 +278,19 @@ The important point for this report is that nothing is recalculated manually in 
 
 ### Page 1 — Portfolio Overview
 
-![Power BI Portfolio Overview page](images/11_power_bi_portfolio_overview.png)
+![Power BI Portfolio Overview page](11_power_bi_portfolio_overview.png)
 
 This page carries the headline figures: 1,300 invested, a final portfolio value of 1,547.22, a profit of 247.22, and a final DCA return of +19.02%. Next to them are the traditional allocation, the final DCA return by strategy (traditional, benchmarks, combined at +11.13%, and the simulated crypto strategy at -28.30%), and the two DCA time series for strategies and benchmarks.
 
 ### Page 2 — Asset & Market Explorer
 
-![Power BI Asset & Market Explorer page](images/12_power_bi_asset_market_explorer.png)
+![Power BI Asset & Market Explorer page](12_power_bi_asset_market_explorer.png)
 
 The second page moves from strategy level to asset level. The summary table lists ticker, monthly allocation, final DCA return, and contribution in percentage points, with the allocation column summing to 100% and the contribution column to 19.02 — the same reconciliation the notebook performs. Alongside it are the weekly normalized price index and the final DCA return per asset, filtered by a date slicer on `dim_date`.
 
 ### Model view
 
-![Star schema loaded in Power BI](images/10_power_bi_data_model.png)
+![Star schema loaded in Power BI](10_power_bi_data_model.png)
 
 The model view shows the schema as Power BI reads it: `dim_date`, `dim_asset`, and `dim_strategy` as dimensions, `bridge_strategy_asset` for allocation shares, and the four fact tables, all connected by one-to-many single-direction relationships. The measures live in a separate `_Measures` table, which keeps the calculation logic distinct from the imported data.
 

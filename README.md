@@ -1,10 +1,8 @@
 # Multi-Asset DCA Portfolio Analysis
 
-**Language:** English | [Deutsch](README_DE.md)
-
 **Portfolio performance, risk, benchmarks, diversification, and dimensional data modeling — May 2025 to May 2026**
 
-This project started in May 2025 as a simple Excel record of my own investments. At that point, Excel was mainly a way to keep track of purchases rather than an analytical workflow. During a later data-analysis bootcamp, I began rebuilding the idea with Python, pandas, visualization, and data modeling. The result is a reproducible portfolio-analysis workflow that grew from a personal spreadsheet into a structured data project.
+This project started in May 2025 as a simple Excel record of a real investment portfolio. At that point, Excel was mainly a way to keep track of purchases rather than an analytical workflow. During a later data-analysis bootcamp, I began rebuilding the idea with Python, pandas, visualization, and data modeling. The result is a reproducible portfolio-analysis workflow that grew from a simple spreadsheet into a structured data project.
 
 My academic background is in history and Iranian studies, not economics, finance, computer science, software engineering, or AI engineering. I am approaching this project as a historian moving into data analysis: defining questions, learning tools, checking assumptions, validating results, and documenting the process.
 
@@ -49,7 +47,7 @@ The analysis separates three related strategies:
 
 | Strategy | Type | Monthly normalized amount | Composition |
 |---|---|---:|---|
-| Traditional portfolio | Reflects the actual investment structure | 100 units | 5 ETFs/ETCs and 2 individual stocks |
+| Traditional portfolio | Reflects a real-world investment structure | 100 units | 5 ETFs/ETCs and 2 individual stocks |
 | Cryptocurrency DCA | Simulated | 100 units | Bitcoin, Ethereum, Solana |
 | Combined scenario | Hypothetical | 600 units | 500 traditional + 100 crypto |
 
@@ -178,19 +176,19 @@ I therefore built a compact two-page Power BI report directly on the eight expor
 
 ### Report page 1 — Portfolio Overview
 
-![Power BI Portfolio Overview page](images/11_power_bi_portfolio_overview.png)
+![Power BI Portfolio Overview page](11_power_bi_portfolio_overview.png)
 
 KPI cards for total invested, final DCA return, final portfolio value, and profit/loss, plus the traditional allocation, the final DCA return by strategy, and two time-series views (strategies and benchmarks). The numbers match the Python output: 1,300 invested, a final value of 1,547.22, and a final DCA return of +19.02%.
 
 ### Report page 2 — Asset & Market Explorer
 
-![Power BI Asset & Market Explorer page](images/12_power_bi_asset_market_explorer.png)
+![Power BI Asset & Market Explorer page](12_power_bi_asset_market_explorer.png)
 
 A per-asset view combining the traditional asset summary (ticker, monthly allocation, final DCA return, contribution in percentage points), weekly normalized price performance, and the final DCA return by asset. A date slicer on `dim_date` filters the period, and a short takeaway panel highlights the contrast between return ranking and contribution ranking.
 
 ### Data model in Power BI
 
-![Star schema loaded in Power BI](images/10_power_bi_data_model.png)
+![Star schema loaded in Power BI](10_power_bi_data_model.png)
 
 The exported model loads without reshaping: three dimensions, one bridge table, four fact tables, and one-to-many single-direction relationships from the dimensions to the facts. A separate `_Measures` table holds the DAX measures used across both report pages, including total invested, final DCA return, final portfolio value, profit/loss, contribution to portfolio return, and the normalized price index.
 
@@ -203,12 +201,6 @@ If the exported model is loaded into Power BI:
 3. create one-to-many, single-direction relationships from the dimensions to the fact tables;
 4. use `bridge_strategy_asset` when allocation shares are needed;
 5. filter portfolio-performance measures by `StrategyKey`, because several strategies intentionally reuse the same assets.
-
----
-
-## Full analytical report
-
-For the detailed methodology, results, interpretation, and Power BI layer, see the [full analytical report](REPORT.md).
 
 ---
 
@@ -253,7 +245,7 @@ Run the notebook cells in order. Yahoo Finance may occasionally revise historica
 ## Limitations
 
 - The analysis covers only one year.
-- The crypto strategy is simulated; actual crypto purchases were irregular.
+- The crypto strategy is simulated; the real-world crypto activity did not follow a fixed monthly schedule.
 - The combined portfolio is hypothetical.
 - Risk metrics and correlations are based on a short sample.
 - Transaction costs, taxes, spreads, and dividends are excluded.

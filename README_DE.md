@@ -1,10 +1,8 @@
 # Multi-Asset-DCA-Portfolioanalyse
 
-**Sprache:** Deutsch | [English](README.md)
-
 **Wertentwicklung, Risiko, Benchmarks, Diversifikation und dimensionale Datenmodellierung — Mai 2025 bis Mai 2026**
 
-Dieses Projekt begann im Mai 2025 als einfache Excel-Liste meiner eigenen Investitionen. Zu diesem Zeitpunkt war Excel für mich vor allem ein Werkzeug, um Käufe festzuhalten, noch kein analytischer Workflow. Während eines späteren Data-Analysis-Bootcamps begann ich, dieselbe Idee mit Python, pandas, Visualisierung und Datenmodellierung neu aufzubauen. Daraus entstand ein reproduzierbarer Analyse-Workflow, der sich von einer persönlichen Tabelle zu einem strukturierten Datenprojekt entwickelt hat.
+Dieses Projekt begann im Mai 2025 als einfache Excel-Liste eines realen Anlageportfolios. Zu diesem Zeitpunkt war Excel vor allem ein Werkzeug, um Käufe festzuhalten, noch kein analytischer Workflow. Während eines späteren Data-Analysis-Bootcamps begann ich, dieselbe Idee mit Python, pandas, Visualisierung und Datenmodellierung neu aufzubauen. Daraus entstand ein reproduzierbarer Analyse-Workflow, der sich von einer einfachen Tabelle zu einem strukturierten Datenprojekt entwickelt hat.
 
 Mein akademischer Hintergrund liegt in Geschichte und Iranistik, nicht in Wirtschaft, Finanzen, Informatik, Software Engineering oder KI-Engineering. Ich gehe an dieses Projekt als Historiker heran, der in die Datenanalyse einsteigt: Fragen definieren, Werkzeuge lernen, Annahmen prüfen, Ergebnisse validieren und den Prozess nachvollziehbar dokumentieren.
 
@@ -14,7 +12,7 @@ Mein akademischer Hintergrund liegt in Geschichte und Iranistik, nicht in Wirtsc
 
 Die Entwicklung des Projekts ist selbst ein wichtiger Teil des Projekts.
 
-- **Mai 2025:** Beginn einer einfachen Excel-Liste zur Erfassung meiner Investitionen.
+- **Mai 2025:** Beginn einer einfachen Excel-Liste zur Erfassung realer Anlageaktivität.
 - **Erste Phase:** Excel diente hauptsächlich dazu, Daten, Werte und Käufe festzuhalten.
 - **Während des Data-Analysis-Bootcamps:** Ich lernte, wie dieselben Informationen mit Python und anderen Datenwerkzeugen bereinigt, strukturiert, analysiert und visualisiert werden können.
 - **Nächste Phase:** Ich baute die Analyse in Jupyter mit pandas, yfinance und matplotlib neu auf und ergänzte DCA-Simulationen, Risikokennzahlen, Benchmarkvergleiche, Diversifikationstests und Beitragsanalysen.
@@ -49,7 +47,7 @@ Die Analyse trennt drei miteinander verbundene Strategien:
 
 | Strategie | Art | Monatlicher normierter Betrag | Zusammensetzung |
 |---|---|---:|---|
-| Traditionelles Portfolio | Entspricht der tatsächlichen Anlagestruktur | 100 Einheiten | 5 ETFs/ETCs und 2 Einzelaktien |
+| Traditionelles Portfolio | Entspricht einer realen Anlagestruktur | 100 Einheiten | 5 ETFs/ETCs und 2 Einzelaktien |
 | Krypto-DCA | Simuliert | 100 Einheiten | Bitcoin, Ethereum, Solana |
 | Kombiniertes Szenario | Hypothetisch | 600 Einheiten | 500 traditionell + 100 Krypto |
 
@@ -178,19 +176,19 @@ Ergänzend habe ich deshalb einen kompakten zweiseitigen Power-BI-Bericht direkt
 
 ### Berichtsseite 1 — Portfolio Overview
 
-![Power-BI-Seite „Portfolio Overview“](images/11_power_bi_portfolio_overview.png)
+![Power-BI-Seite „Portfolio Overview“](11_power_bi_portfolio_overview.png)
 
 KPI-Karten für eingezahltes Kapital, finale DCA-Rendite, finalen Portfoliowert und Gewinn/Verlust, dazu die traditionelle Allokation, die finale DCA-Rendite je Strategie und zwei Zeitreihen (Strategien und Benchmarks). Die Werte entsprechen den Python-Ergebnissen: 1.300 eingezahlt, Endwert 1.547,22 und eine finale DCA-Rendite von +19,02 %.
 
 ### Berichtsseite 2 — Asset & Market Explorer
 
-![Power-BI-Seite „Asset & Market Explorer“](images/12_power_bi_asset_market_explorer.png)
+![Power-BI-Seite „Asset & Market Explorer“](12_power_bi_asset_market_explorer.png)
 
 Eine Einzelwertansicht mit der Übersicht der traditionellen Positionen (Ticker, monatliche Allokation, finale DCA-Rendite, Beitrag in Prozentpunkten), der wöchentlichen normierten Kursentwicklung und der finalen DCA-Rendite je Asset. Ein Datums-Slicer auf `dim_date` filtert den Zeitraum, ein kurzer Textblock hebt den Unterschied zwischen Rendite-Rangfolge und Beitrags-Rangfolge hervor.
 
 ### Datenmodell in Power BI
 
-![Sternschema in Power BI](images/10_power_bi_data_model.png)
+![Sternschema in Power BI](10_power_bi_data_model.png)
 
 Das exportierte Modell lädt ohne weitere Umbauten: drei Dimensionen, eine Bridge-Tabelle, vier Faktentabellen und 1:n-Beziehungen in einer Richtung von den Dimensionen zu den Fakten. Eine separate `_Measures`-Tabelle enthält die DAX-Measures beider Berichtsseiten, unter anderem eingezahltes Kapital, finale DCA-Rendite, finalen Portfoliowert, Gewinn/Verlust, Beitrag zur Portfoliorendite und den normierten Preisindex.
 
@@ -203,12 +201,6 @@ Wenn das exportierte Modell in Power BI geladen wird:
 3. 1:n-Beziehungen in einer Richtung von den Dimensionen zu den Faktentabellen anlegen;
 4. `bridge_strategy_asset` verwenden, wenn Allokationsanteile ausgewertet werden;
 5. Performance-Kennzahlen nach `StrategyKey` filtern, da mehrere Strategien absichtlich dieselben Assets verwenden.
-
----
-
-## Vollständiger Analysebericht
-
-Die ausführliche Methodik, Ergebnisse, Interpretation und Power-BI-Schicht stehen im [vollständigen Analysebericht](REPORT.md).
 
 ---
 
@@ -253,7 +245,7 @@ Alle Zellen der Reihe nach ausführen. Yahoo Finance kann historische Marktdaten
 ## Einschränkungen
 
 - Der Betrachtungszeitraum umfasst nur ein Jahr.
-- Die Krypto-Strategie ist simuliert; die tatsächlichen Krypto-Käufe erfolgten unregelmäßig.
+- Die Krypto-Strategie ist simuliert; die reale Krypto-Aktivität folgte keinem festen monatlichen Zeitplan.
 - Das Combined-Portfolio ist hypothetisch.
 - Risikokennzahlen und Korrelationen basieren auf einer kurzen Stichprobe.
 - Transaktionskosten, Steuern, Spreads und Dividenden sind ausgeschlossen.
