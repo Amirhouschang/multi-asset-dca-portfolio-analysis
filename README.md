@@ -1,8 +1,10 @@
 # Multi-Asset DCA Portfolio Analysis
 
+[Deutsche Version](README_DE.md) · [Full analytical report](REPORT.md)
+
 **Portfolio performance, risk, benchmarks, diversification, and dimensional data modeling — May 2025 to May 2026**
 
-This project started in May 2025 as a simple Excel record of a real investment portfolio. At that point, Excel was mainly a way to keep track of purchases rather than an analytical workflow. During a later data-analysis bootcamp, I began rebuilding the idea with Python, pandas, visualization, and data modeling. The result is a reproducible portfolio-analysis workflow that grew from a simple spreadsheet into a structured data project.
+This project started in May 2025 as a simple Excel record of a real investment portfolio. At that point, Excel was mainly a way to keep track of purchases rather than an analytical workflow. During a later data-analysis bootcamp, I began rebuilding the idea with Python, pandas, visualization, and data modeling. The result is a reproducible portfolio-analysis workflow that grew from a personal spreadsheet into a structured data project.
 
 My academic background is in history and Iranian studies, not economics, finance, computer science, software engineering, or AI engineering. I am approaching this project as a historian moving into data analysis: defining questions, learning tools, checking assumptions, validating results, and documenting the process.
 

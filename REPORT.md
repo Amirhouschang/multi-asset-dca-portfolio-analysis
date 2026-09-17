@@ -1,5 +1,7 @@
 # Analytical Report
 
+[English README](README.md) · [Deutsche README](README_DE.md)
+
 ## From an Excel Log to a Reproducible Multi-Asset Analysis
 
 **May 2025 – May 2026**
@@ -8,9 +10,9 @@
 
 ## 1. Where this project started
 
-In May 2025, the project began as a simple Excel record of a real investment portfolio. The first version was not a financial model. It was a practical list: dates, assets, amounts, and a way to track investment activity.
+In May 2025, I began keeping a simple Excel record of a real investment portfolio. The first version was not a financial model. It was a practical list: dates, assets, amounts, and a way to track what had been bought.
 
-I did not come to this from economics, finance, computer science, software engineering, or AI engineering. My academic background is in history and Iranian studies. At the beginning, Excel was mainly a record-keeping tool, and there was no reason to think of the spreadsheet as the starting point of a larger data project.
+I did not come to this from economics, finance, computer science, software engineering, or AI engineering. My academic background is in history and Iranian studies. At the beginning, Excel was mainly a record-keeping tool for me, and I had no reason to think of the spreadsheet as the starting point of a larger data project.
 
 That changed during a later data-analysis bootcamp. As I learned Python, pandas, visualization, Power BI, and data modeling, I returned to the old spreadsheet with different questions. Instead of only asking whether an investment was up or down, I could ask:
 

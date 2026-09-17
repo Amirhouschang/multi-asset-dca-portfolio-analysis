@@ -1,8 +1,10 @@
 # Multi-Asset-DCA-Portfolioanalyse
 
+[English version](README.md) · [Vollständiger analytischer Bericht](REPORT.md)
+
 **Wertentwicklung, Risiko, Benchmarks, Diversifikation und dimensionale Datenmodellierung — Mai 2025 bis Mai 2026**
 
-Dieses Projekt begann im Mai 2025 als einfache Excel-Liste eines realen Anlageportfolios. Zu diesem Zeitpunkt war Excel vor allem ein Werkzeug, um Käufe festzuhalten, noch kein analytischer Workflow. Während eines späteren Data-Analysis-Bootcamps begann ich, dieselbe Idee mit Python, pandas, Visualisierung und Datenmodellierung neu aufzubauen. Daraus entstand ein reproduzierbarer Analyse-Workflow, der sich von einer einfachen Tabelle zu einem strukturierten Datenprojekt entwickelt hat.
+Dieses Projekt begann im Mai 2025 als einfache Excel-Liste eines realen Anlageportfolios. Zu diesem Zeitpunkt war Excel für mich vor allem ein Werkzeug, um Käufe festzuhalten, noch kein analytischer Workflow. Während eines späteren Data-Analysis-Bootcamps begann ich, dieselbe Idee mit Python, pandas, Visualisierung und Datenmodellierung neu aufzubauen. Daraus entstand ein reproduzierbarer Analyse-Workflow, der sich von einer persönlichen Tabelle zu einem strukturierten Datenprojekt entwickelt hat.
 
 Mein akademischer Hintergrund liegt in Geschichte und Iranistik, nicht in Wirtschaft, Finanzen, Informatik, Software Engineering oder KI-Engineering. Ich gehe an dieses Projekt als Historiker heran, der in die Datenanalyse einsteigt: Fragen definieren, Werkzeuge lernen, Annahmen prüfen, Ergebnisse validieren und den Prozess nachvollziehbar dokumentieren.
 
