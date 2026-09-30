@@ -84,6 +84,8 @@ The project uses two different return concepts for different purposes.
 
 The cumulative DCA return is **not IRR/XIRR** and should not be described as a formal money-weighted rate of return. It is a simple return on contributed capital.
 
+If the purchase date is earlier than the observation date (crypto, April 2026), the cash-flow-adjusted monthly return values only the units held before the new purchase.
+
 The traditional portfolio's final cumulative DCA return is **+19.02%**. Its annualized return calculated from the cash-flow-adjusted monthly series is **+31.33%**. These are different measures and answer different questions.
 
 ---
@@ -160,8 +162,8 @@ Risk metrics are calculated from the cash-flow-adjusted monthly returns.
 | Strategy | Annualized return | Volatility | Sharpe | Maximum drawdown |
 |---|---:|---:|---:|---:|
 | Traditional | +31.33% | 13.96% | 2.04 | -4.67% |
-| Simulated crypto | -2.10% | 69.32% | 0.30 | -55.34% |
-| Combined | +28.47% | 19.55% | 1.38 | -9.19% |
+| Simulated crypto | -2.70% | 69.32% | 0.29 | -55.34% |
+| Combined | +28.37% | 19.57% | 1.38 | -9.26% |
 
 The scale of the difference is clear. The simulated crypto strategy had roughly five times the annualized volatility of the traditional portfolio in this sample.
 
@@ -276,7 +278,7 @@ The model is useful beyond Power BI. It separates reusable dimensions from measu
 
 Power BI was part of my data-analysis learning, and the model is intentionally compatible with it. To show that the exported star schema really works as a BI source, I built a compact two-page report on the eight CSV tables.
 
-The important point for this report is that nothing is recalculated manually in Power BI. The eight tables load as they are exported, the relationships follow the grains defined in the notebook, and every visual is driven by DAX measures over that model. Where the same quantity appears in both environments, the values agree.
+The important point for this report is that nothing is recalculated manually in Power BI. The eight tables load as they are exported (the Power BI file only adds three display columns that are not in the CSV files: `AssetShortName`, `StrategyShortName`, `WeekStart`), the relationships follow the grains defined in the notebook, and every card, chart, and table is driven by DAX measures over that model (only the short Key Takeaways text on page 2 is written by hand). Where the same quantity appears in both environments, the values agree.
 
 ### Page 1 — Portfolio Overview
 

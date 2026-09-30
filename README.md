@@ -79,7 +79,7 @@ Returns use **unadjusted closing prices**, so dividends are excluded. This may s
 
 1. **DCA simulation** — monthly purchased units are calculated as `allocation / closing price`, and holdings accumulate over time.
 2. **Cumulative DCA return** — `(portfolio value - total contributed) / total contributed`. This is a simple return on contributed capital under the DCA schedule; it is **not** IRR/XIRR.
-3. **Cash-flow-adjusted monthly return** — `(value_t - contribution) / value_{t-1} - 1`. This removes the new monthly contribution before calculating the period return used for the risk analysis.
+3. **Cash-flow-adjusted monthly return** — `(value_t - contribution) / value_{t-1} - 1`. This removes the new monthly contribution before calculating the period return used for the risk analysis. If the purchase date is earlier than the observation date (crypto, April 2026), only the units held before the new purchase are valued.
 4. **Risk metrics** — annualized return, annualized volatility, Sharpe ratio with a simplified 0% risk-free rate, and maximum drawdown.
 5. **Correlation** — weekly returns are used to compare how the traditional holdings moved together.
 6. **Benchmarking** — each benchmark follows the same 13-purchase DCA schedule and normalized monthly amount.
@@ -107,8 +107,8 @@ The traditional portfolio therefore finished 3.16 percentage points ahead of the
 | Strategy | Annualized return | Volatility | Sharpe | Max drawdown |
 |---|---:|---:|---:|---:|
 | Traditional | +31.33% | 13.96% | 2.04 | -4.67% |
-| Simulated crypto | -2.10% | 69.32% | 0.30 | -55.34% |
-| Combined | +28.47% | 19.55% | 1.38 | -9.19% |
+| Simulated crypto | -2.70% | 69.32% | 0.29 | -55.34% |
+| Combined | +28.37% | 19.57% | 1.38 | -9.26% |
 
 The risk table uses cash-flow-adjusted monthly returns. These figures should not be confused with the cumulative DCA returns.
 
@@ -174,7 +174,7 @@ Python/Jupyter is the primary analytical environment for this project.
 
 I prefer working with Python and open-source tools because the transformations, calculations, and assumptions remain visible in code and can be reproduced step by step. Power BI is useful as a presentation layer, but I did not want to rebuild the entire analysis a second time only to reproduce charts that already exist in Python.
 
-I therefore built a compact two-page Power BI report directly on the eight exported CSV tables. Nothing is recalculated by hand: every figure shown in the report comes from the same validated star schema that the notebook produces, aggregated with DAX measures. The dashboard demonstrates that the model can be consumed by a BI tool; it remains intentionally secondary to the Python workflow.
+I therefore built a compact two-page Power BI report directly on the eight exported CSV tables. Nothing is recalculated by hand: every figure in the cards, charts, and tables comes from the same validated star schema that the notebook produces and is calculated with DAX measures; only the short Key Takeaways text on page 2 is written by hand. The dashboard demonstrates that the model can be consumed by a BI tool; it remains intentionally secondary to the Python workflow.
 
 ### Report page 1 — Portfolio Overview
 
@@ -192,7 +192,7 @@ A per-asset view combining the traditional asset summary (ticker, monthly alloca
 
 ![Star schema loaded in Power BI](images/10_power_bi_data_model.png)
 
-The exported model loads without reshaping: three dimensions, one bridge table, four fact tables, and one-to-many single-direction relationships from the dimensions to the facts. A separate `_Measures` table holds the DAX measures used across both report pages, including total invested, final DCA return, final portfolio value, profit/loss, contribution to portfolio return, and the normalized price index.
+The eight exported tables load without reshaping; the Power BI file only adds three display columns that are not in the CSV files (`AssetShortName`, `StrategyShortName`, `WeekStart`). The model has three dimensions, one bridge table, four fact tables, and one-to-many single-direction relationships from the dimensions to the facts. A separate `_Measures` table holds the DAX measures used across both report pages, including total invested, final DCA return, final portfolio value, profit/loss, contribution to portfolio return, and the normalized price index.
 
 ### Loading the model yourself
 
@@ -210,6 +210,7 @@ If the exported model is loaded into Power BI:
 
 ```text
 ├── multi_asset_dca_portfolio_analysis.ipynb
+├── portfolio_analysis.pbix
 ├── data/
 │   ├── dim_date.csv
 │   ├── dim_asset.csv

@@ -79,7 +79,7 @@ Verwendet werden **unbereinigte Schlusskurse**. Dividenden sind daher nicht in d
 
 1. **DCA-Simulation** — die monatlich gekauften Anteile werden als `Allokation / Schlusskurs` berechnet und anschließend kumuliert.
 2. **Kumulative DCA-Rendite** — `(Portfoliowert - gesamte Einzahlungen) / gesamte Einzahlungen`. Das ist eine einfache Rendite auf das eingezahlte Kapital innerhalb des DCA-Modells; sie ist **keine** IRR-/XIRR-Berechnung.
-3. **Cashflow-bereinigte Monatsrendite** — `(Wert_t - Einzahlung) / Wert_{t-1} - 1`. Die neue monatliche Einzahlung wird vor der Periodenrendite herausgerechnet und diese Reihe für die Risikoanalyse verwendet.
+3. **Cashflow-bereinigte Monatsrendite** — `(Wert_t - Einzahlung) / Wert_{t-1} - 1`. Die neue monatliche Einzahlung wird vor der Periodenrendite herausgerechnet und diese Reihe für die Risikoanalyse verwendet. Liegt der Kauftag vor dem Bewertungstag (Krypto, April 2026), werden nur die Anteile bewertet, die vor dem neuen Kauf gehalten wurden.
 4. **Risikokennzahlen** — annualisierte Rendite, annualisierte Volatilität, Sharpe Ratio mit vereinfachtem risikofreiem Zins von 0 % und maximaler Drawdown.
 5. **Korrelation** — Wochenrenditen zeigen, wie stark sich die traditionellen Positionen gemeinsam bewegt haben.
 6. **Benchmarking** — jeder Benchmark folgt demselben 13-Käufe-DCA-Zeitplan und demselben normierten monatlichen Betrag.
@@ -107,8 +107,8 @@ Das traditionelle Portfolio lag in dieser konkreten einjährigen Stichprobe dami
 | Strategie | Annualisierte Rendite | Volatilität | Sharpe | Max. Drawdown |
 |---|---:|---:|---:|---:|
 | Traditionell | +31,33 % | 13,96 % | 2,04 | -4,67 % |
-| Simulierte Krypto-Strategie | -2,10 % | 69,32 % | 0,30 | -55,34 % |
-| Kombiniert | +28,47 % | 19,55 % | 1,38 | -9,19 % |
+| Simulierte Krypto-Strategie | -2,70 % | 69,32 % | 0,29 | -55,34 % |
+| Kombiniert | +28,37 % | 19,57 % | 1,38 | -9,26 % |
 
 Die Risikotabelle basiert auf cashflow-bereinigten Monatsrenditen. Diese Kennzahlen dürfen nicht mit den kumulierten DCA-Renditen verwechselt werden.
 
@@ -174,7 +174,7 @@ Python/Jupyter ist die primäre Analyseumgebung dieses Projekts.
 
 Ich arbeite lieber mit Python und Open-Source-Werkzeugen, weil Transformationen, Berechnungen und Annahmen im Code sichtbar bleiben und Schritt für Schritt reproduziert werden können. Power BI ist als Präsentationsschicht nützlich, aber ich wollte nicht die gesamte Analyse ein zweites Mal nachbauen, nur um bereits vorhandene Python-Diagramme zu reproduzieren.
 
-Ergänzend habe ich deshalb einen kompakten zweiseitigen Power-BI-Bericht direkt auf den acht exportierten CSV-Tabellen aufgebaut. Nichts wird dabei manuell neu gerechnet: Alle dargestellten Werte stammen aus demselben validierten Sternschema, das das Notebook erzeugt, und werden über DAX-Measures aggregiert. Das Dashboard zeigt, dass das Modell in einem BI-Werkzeug nutzbar ist; es bleibt bewusst eine Ergänzung und nicht der Kern des Projekts.
+Ergänzend habe ich deshalb einen kompakten zweiseitigen Power-BI-Bericht direkt auf den acht exportierten CSV-Tabellen aufgebaut. Nichts wird dabei manuell neu gerechnet: Alle Werte in Karten, Diagrammen und Tabellen stammen aus demselben validierten Sternschema, das das Notebook erzeugt, und werden über DAX-Measures berechnet; nur der kurze Key-Takeaways-Text auf Seite 2 ist von Hand geschrieben. Das Dashboard zeigt, dass das Modell in einem BI-Werkzeug nutzbar ist; es bleibt bewusst eine Ergänzung und nicht der Kern des Projekts.
 
 ### Berichtsseite 1 — Portfolio Overview
 
@@ -192,7 +192,7 @@ Eine Einzelwertansicht mit der Übersicht der traditionellen Positionen (Ticker,
 
 ![Sternschema in Power BI](images/10_power_bi_data_model.png)
 
-Das exportierte Modell lädt ohne weitere Umbauten: drei Dimensionen, eine Bridge-Tabelle, vier Faktentabellen und 1:n-Beziehungen in einer Richtung von den Dimensionen zu den Fakten. Eine separate `_Measures`-Tabelle enthält die DAX-Measures beider Berichtsseiten, unter anderem eingezahltes Kapital, finale DCA-Rendite, finalen Portfoliowert, Gewinn/Verlust, Beitrag zur Portfoliorendite und den normierten Preisindex.
+Die acht exportierten Tabellen laden ohne weitere Umbauten; die Power-BI-Datei ergänzt nur drei Anzeigespalten, die nicht in den CSV-Dateien stehen (`AssetShortName`, `StrategyShortName`, `WeekStart`). Das Modell hat drei Dimensionen, eine Bridge-Tabelle, vier Faktentabellen und 1:n-Beziehungen in einer Richtung von den Dimensionen zu den Fakten. Eine separate `_Measures`-Tabelle enthält die DAX-Measures beider Berichtsseiten, unter anderem eingezahltes Kapital, finale DCA-Rendite, finalen Portfoliowert, Gewinn/Verlust, Beitrag zur Portfoliorendite und den normierten Preisindex.
 
 ### Modell selbst laden
 
@@ -210,6 +210,7 @@ Wenn das exportierte Modell in Power BI geladen wird:
 
 ```text
 ├── multi_asset_dca_portfolio_analysis.ipynb
+├── portfolio_analysis.pbix
 ├── data/
 │   ├── dim_date.csv
 │   ├── dim_asset.csv
