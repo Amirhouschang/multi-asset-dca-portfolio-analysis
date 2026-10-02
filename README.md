@@ -256,3 +256,9 @@ Run the notebook cells in order. Yahoo Finance may occasionally revise historica
 - Results from one market period should not be treated as evidence of a repeatable investment advantage.
 
 Past performance does not indicate future results. This project is not investment advice.
+
+---
+
+## Rights
+  
+© 2026 Amirhoushang Rahmannejad. All rights reserved. You are welcome to read and review this project. Copying, modifying or redistributing it requires my written permission.
