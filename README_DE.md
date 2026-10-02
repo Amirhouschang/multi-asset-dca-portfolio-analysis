@@ -256,3 +256,9 @@ Alle Zellen der Reihe nach ausführen. Yahoo Finance kann historische Marktdaten
 - Ergebnisse aus einer einzelnen Marktphase sollten nicht als Beleg für einen dauerhaft wiederholbaren Anlagevorteil verstanden werden.
 
 Vergangene Wertentwicklung lässt keine Rückschlüsse auf künftige Ergebnisse zu. Dieses Projekt ist keine Anlageberatung.
+
+---
+
+## Rechte
+
+© 2026 Amirhoushang Rahmannejad. Alle Rechte vorbehalten. Ansehen und Prüfen ist ausdrücklich erwünscht. Kopieren, Ändern oder Weiterverbreiten nur mit meiner schriftlichen Erlaubnis.
